@@ -1,28 +1,26 @@
 import time
 from selenium import webdriver
 
-driver = webdriver.Chrome()
+#driver = webdriver.Chrome()
+driver = webdriver.Firefox()
 driver.get('https://www.google.pl')
-driver.maximize_window()
+#driver.maximize_window()
 
-PoleTekstowe = driver.find_element_by_name('q')
+SearchField = driver.find_element_by_name('q')
+SearchField.send_keys('fasola')
 
-PoleTekstowe.send_keys('fasola')
-#PoleTekstowe.submit()
+# Aby zwinac liste propozycji, klikamy w Logo Google
+ClickOnLogo = driver.find_element_by_id('hplogo')
+ClickOnLogo.click()
 
-KlikWLogo = driver.find_element_by_id('hplogo')
-KlikWLogo.click()
-
-print ('Kliknieto w Logo')
 time.sleep(2)
-
 przycisk = driver.find_element_by_name('btnK')
 przycisk.click()
 
-time.sleep(2)
+#time.sleep(2)
+
 try:
-    assert "https://pl.wikipedia.org/wiki/Fasola" in driver.page_source
+    assert 'fasola - Szukaj w Google' in driver.title
     print ('Test PASSED')
 finally:
-    time.sleep(2)
     driver.close()
