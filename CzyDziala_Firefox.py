@@ -3,7 +3,10 @@ from selenium import webdriver
 
 driver = webdriver.Firefox()
 driver.get('http://www.python.org')
-#driver.maximize_window()
+driver.maximize_window()
 
 time.sleep(2)
+
+print ('Test PASSED')
+
 driver.close()
