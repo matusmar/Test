@@ -7,7 +7,7 @@ driver.get('https://www.google.pl')
 driver.maximize_window()
 
 SearchField = driver.find_element_by_name('q')
-SearchField.send_keys('fasola')
+SearchField.send_keys('fasola1')
 
 # Aby zwinac liste propozycji, klikamy w Logo Google
 ClickOnLogo = driver.find_element_by_id('hplogo')
